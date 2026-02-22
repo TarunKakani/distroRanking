@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Distro Ranking</title>
+
+    <style>
+    /* Center the entire body content */
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        /* Style the matchup section */
+        .matchup-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Use Flexbox to put buttons side-by-side */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between the buttons */
+            margin-top: 20px;
+        }
+
+        /* Style the actual voting buttons */
+        .distro-btn {
+            background-color: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            min-width: 200px; /* Keeps buttons the same size regardless of text length */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Add a hover effect so they feel interactive */
+        .distro-btn:hover {
+            border-color: #007bff;
+            background-color: #f0f7ff;
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        /* Style the VS text */
+        .vs-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #888;
+        }
+
+        /* Keep the leaderboard centered too */
+        .leaderboard-section {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        /* Keep your View Transitions CSS from earlier */
+        ::view-transition-old(*),
+        ::view-transition-new(*) {
+            animation-duration: 0.4s;
+        }
+
+        /* Turn the leaderboard section into a sleek card */
+        .leaderboard-section {
+            width: 100%;
+            max-width: 500px; /* Keeps it from getting too wide on big screens */
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .leaderboard-section h1 {
+            margin-top: 0;
+            text-align: center;
+            color: #222;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Reset the ordered list styles */
+        #leaderboard-list {
+            list-style: none; /* Removes default numbers */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Style each row in the leaderboard */
+        #leaderboard-list li {
+            display: flex;
+            justify-content: space-between; /* Pushes name left, rating right */
+            align-items: center;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            background-color: #f9fafb;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+
+        /* Make the top 3 rows pop with special colors! */
+        #leaderboard-list li:nth-child(1) {
+            background-color: #fff8e6; /* Subtle gold */
+            border-color: #ffe08a;
+            font-weight: bold;
+        }
+        #leaderboard-list li:nth-child(2) {
+            background-color: #f5f7fa; /* Subtle silver */
+            border-color: #cfd9df;
+            font-weight: bold;
+        }
+        #leaderboard-list li:nth-child(3) {
+            background-color: #fdf6f0; /* Subtle bronze */
+            border-color: #f6d3b3;
+            font-weight: bold;
+        }
+
+        /* Style the rating badge */
+        .distro-rating {
+            background-color: #222;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="matchup-section">
+        <h2>Which distro would you prefer?</h2>
+        
+        <div class="button-container">
+            <button id="button1" class="distro-btn" type="button">
+                <span id="distro-1">Loading...</span>
+            </button>
+
+            <span class="vs-text">VS</span>
+
+            <button id="button2" class="distro-btn" type="button">
+                <span id="distro-2">Loading...</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="leaderboard-section">
+            <h1>Leaderboard</h1>
+            <ol id="leaderboard-list"></ol>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
